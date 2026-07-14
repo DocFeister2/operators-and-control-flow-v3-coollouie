@@ -46,7 +46,7 @@ int main() {
 
   // DO NOT EDIT ABOVE THIS LINE!
 
-  // TODO: Finish this program to compute total price, and price per item!
+  
   
 
 
@@ -110,9 +110,8 @@ int main() {
   
 
 
-  // TODO: APPLY THE OPTIONAL DISCOUNT TO FINAL TOTAL COST
-  //...
-if (accept_sale=="y"){
+  
+if (accept_sale=="y"){//check the sale 
 
   if(product_type == "banana"){
 
@@ -134,7 +133,7 @@ if (accept_sale=="y"){
     }
 
   }
-  else if (product_type=="apple"){
+  else if (product_type=="apple"){//basicly do the same thing but with small changes for each item
 
     if(unit_type == "single"){
 
