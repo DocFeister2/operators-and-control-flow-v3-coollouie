@@ -47,11 +47,9 @@ int main() {
   // DO NOT EDIT ABOVE THIS LINE!
 
   // TODO: Finish this program to compute total price, and price per item!
-  // TODO: Edit freely and significantly expand all code below
-  // The code below is yours to delete, rewrite how you please!
+  
 
-  // TODO: INPUT VALIDATION
-  // Print error statements if any of the inputs or combinations of inputs are invalid!
+
 
   if (quantity <= 0) {
     cout << "Invalid quantity entered! Quantity must be greater than zero. Aborting." << endl; // (this is an example of how I'd like you to print error messages for this lab)
@@ -62,23 +60,112 @@ int main() {
     cout << "Invalid unit type entered! For bananas, the unit type must be 'single' or 'bunch'." << endl;
     return 1; // abort
   }
-  //...
+    if (!(product_type == "banana") && (product_type!="apple") && (product_type != "watermelon")) {
+    cout << "Invalid Type! Enter banana, apple, or watermelon" << endl;
+    return 1; 
+  }
+  if ((product_type == "apple") && !(unit_type == "single" || unit_type == "bag")) {
+    cout << "Invalid unit type entered! For apple, the unit type must be 'single' or 'bag' " << endl;
+    return 1; 
+  }
+  if ((product_type == "watermelon") && unit_type != "single") {
+    cout << "Invalid unit type entered! For watermelons, the unit type must be 'single'" << endl;
+    return 1; 
+  }
 
-  // TODO: COMPUTE THE COST OF THIS PURCHASE
+  if (accept_sale != "y" && accept_sale != "n")
+{
+    cout << "Invalid sale response! Please enter y or n." << endl;
+    return 1;
+}
+
+
   if ((product_type == "banana") && (unit_type == "single")) {
-    total_cost = quantity * (price_banana / 100.); // total cost in dollars
-    //...
+    total_cost = quantity * (price_banana / 100.0); 
+    item_cost=price_banana / 100.0;
+    
   }
-  if (product_type == "banana") && (unit_type == "bunch")) {
-    total_cost = quantity *   //...
-    //...
+  else if ((product_type == "banana") && (unit_type == "bunch")) {
+    total_cost = quantity * price_bunch_bananas;
+    item_cost = total_cost / (quantity * 7);
+    
   }
-  //...
-  //...
+  else if ((product_type == "apple") && (unit_type == "single")) {//should be the same amount of conditionals even if it was nested
+    total_cost = quantity * (price_apple / 100.0); 
+    item_cost=price_apple / 100.0;
+    
+  }
+  else if ((product_type == "apple") && (unit_type == "bag")) {
+    total_cost = quantity * price_bag_apples;
+    item_cost = total_cost / (quantity * 8);
+    
+  }
+  else if ((product_type == "watermelon") && (unit_type == "single")) {
+    total_cost = quantity * (price_watermelon / 100.0); // total cost in dollars
+    item_cost=price_watermelon / 100.0;
+    
+  }
+
+
+  
 
 
   // TODO: APPLY THE OPTIONAL DISCOUNT TO FINAL TOTAL COST
   //...
+if (accept_sale=="y"){
+
+  if(product_type == "banana"){
+
+    if(unit_type == "single"){
+
+      total_cost += price_banana/100.0;
+      ++quantity;
+      total_cost *=.90;
+      item_cost=total_cost/quantity;
+
+    }
+    else{
+
+      total_cost += price_bunch_bananas;
+      ++quantity;
+      total_cost *= .90;
+      item_cost = total_cost / (quantity*7);
+
+    }
+
+  }
+  else if (product_type=="apple"){
+
+    if(unit_type == "single"){
+
+      total_cost += price_apple/100.0;
+      ++quantity;
+      total_cost *=.90;
+      item_cost = total_cost / quantity;
+
+    }
+    else{
+
+      total_cost += price_bag_apples;
+      ++quantity;
+      total_cost *= .90;
+      item_cost = total_cost / (quantity * 8);
+
+    }
+
+  }
+
+  else{
+
+    total_cost += price_watermelon/100.0;
+      ++quantity;
+      total_cost *=.90;
+      item_cost = total_cost / quantity;
+}
+
+
+
+}
 
       
   // DO NOT EDIT BELOW THIS LINE!
